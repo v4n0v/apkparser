@@ -28,30 +28,18 @@ A tool to extract AndroidManifest.xml and verify APK signature is also part of t
 package main
 
 import (
-	"encoding/xml"
 	"fmt"
 	"github.com/appflight/apkparser"
 	"os"
 )
 
 func main() {
-	enc := xml.NewEncoder(os.Stdout)
-	enc.Indent("", "\t")
-	zipErr, resErr, manErr := apkparser.ParseApk(os.Args[1], enc)
-	if zipErr != nil {
-		fmt.Fprintf(os.Stderr, "Failed to open the APK: %s", zipErr.Error())
+	apkInfo, err := apkparser.ParseApk(os.Args[1])
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to open the APK: %s", err)
 		os.Exit(1)
 		return
 	}
-
-	if resErr != nil {
-		fmt.Fprintf(os.Stderr, "Failed to parse resources: %s", resErr.Error())
-	}
-	if manErr != nil {
-		fmt.Fprintf(os.Stderr, "Failed to parse AndroidManifest.xml: %s", manErr.Error())
-		os.Exit(1)
-		return
-	}
-	fmt.Println()
+	fmt.Println(apkInfo)
 }
 ```
