@@ -1,12 +1,5 @@
-github.com/appflight/apkparser v0.0.0-20190516101250-3b8c5efcb6a9/go.mod h1:c0733VBXm1we9M1zCtoOspplSwOYebS3hpDkJyMORRU=
-github.com/appflight/apkparser v0.0.0-20200102113521-69bcdd9c2403/go.mod h1:eZzHNfZWA1eeKPQE3LVmfRw32lhrH351jDCsma9qxOc=
-github.com/appflight/apkparser v0.0.0-20200402131724-9fd46d5c4749 h1:7Y6ukSVvHZM+gEnBF8DNrgM+G3O+OVMmxVX7gYOM/io=
-github.com/appflight/apkparser v0.0.0-20200402131724-9fd46d5c4749/go.mod h1:CSBdDZNEsGRYPiDt9QcGrIy8iWQ9YzB1rcuxn44+0jc=
-github.com/appflight/apkverifier v0.0.0-20190808142831-dbbe53a24744 h1:c6iF4iXMEye7sehR8x94avWBX8XXFemB7ZpE903T1AA=
-github.com/appflight/apkverifier v0.0.0-20190808142831-dbbe53a24744/go.mod h1:mhWRoMg0KhvWt8SX7B2v2E3VfWt5jWfHfD9PtWAN+qM=
-github.com/appflight/apkverifier v0.0.0-20200217135742-aa28c80b82ae h1:yNhhCebTTCghgDAZ7X5EQoaa7+nwOxglmSCsF5osMFw=
-github.com/appflight/apkverifier v0.0.0-20200217135742-aa28c80b82ae/go.mod h1:SV58cyAAN+SzX8GIBhizatMJNGcDyfQUj/xZUlKRW+I=
-github.com/appflight/apkverifier v0.0.0-20200416105355-97c5338f32f0 h1:Ybldr9XobZ93hnxcx3NQQtiL4he9KdCT3QPO81L7Ubk=
-github.com/appflight/apkverifier v0.0.0-20200416105355-97c5338f32f0/go.mod h1:HskRSJJJbP3poUkDRAyRAdDVSsh5J1mz8cRc2/B4kbc=
+github.com/appflight/apkparser v0.0.0-20210130111306-76f9efb1a121/go.mod h1:Z1DeQQQej1icWWKARW4R89Pnp/FWp0QDJs6PRWBHoPc=
+github.com/appflight/apkverifier v0.0.0-20210130121812-c0bf3a886586 h1:lwe5yEDXH+PS3UfwWZrwLsB6z0CgzJNOAYzcS/vDTRE=
+github.com/appflight/apkverifier v0.0.0-20210130121812-c0bf3a886586/go.mod h1:Hz2bdVCgdZ4eS9GFlnsH5Oql7I2VZJ5ew2yev1y0CZU=
 github.com/klauspost/compress v1.11.0 h1:wJbzvpYMVGG9iTI9VxpnNZfd4DzMPoCWze3GgSqz8yg=
 github.com/klauspost/compress v1.11.0/go.mod h1:aoV0uJVorq1K+umq18yTdKaF57EivdYsUV+/s2qKfXs=
