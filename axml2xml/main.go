@@ -14,9 +14,9 @@ import (
 	"runtime/pprof"
 	"strings"
 
-	"github.com/avast/apkparser"
-	"github.com/avast/apkverifier"
-	"github.com/avast/apkverifier/apilevel"
+	"github.com/appflight/apkparser"
+	"github.com/appflight/apkverifier"
+	"github.com/appflight/apkverifier/apilevel"
 )
 
 type optsType struct {
