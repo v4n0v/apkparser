@@ -8,4 +8,4 @@ require (
 	github.com/klauspost/compress v1.11.0
 )
 
-replace github.com/appflight/apkparser => github.com/v4n0v/apkparser
+replace github.com/appflight/apkparser => ../apkparser
