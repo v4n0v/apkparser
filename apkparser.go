@@ -7,9 +7,11 @@ import (
 	"fmt"
 	"github.com/appflight/androidbinary"
 	"image"
+	"image/png"
 	"io"
 	"os"
 	"runtime/debug"
+	"strings"
 )
 
 type ApkInfo struct {
@@ -184,6 +186,13 @@ func (p *ApkParser) ParseIcon(name string) (image.Image, error) {
 		return nil, err
 	}
 	defer file.Close()
+
+	if strings.HasSuffix(file.Name, ".png") {
+		icon, err := png.Decode(file)
+		if err == nil {
+			return icon, nil
+		}
+	}
 
 	icon, _, err := image.Decode(file)
 	if err != nil {

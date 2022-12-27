@@ -1,4 +1,4 @@
-module github.com/appflight/apkparser
+module github.com/v4n0v/apkparser
 
 go 1.15
 
