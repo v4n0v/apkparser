@@ -7,3 +7,5 @@ require (
 	github.com/appflight/apkverifier v1.0.0
 	github.com/klauspost/compress v1.11.0
 )
+
+replace github.com/appflight/apkparser => github.com/v4n0v/apkparser
