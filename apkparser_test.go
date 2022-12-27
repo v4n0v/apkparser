@@ -5,7 +5,7 @@ import (
 	"crypto/sha256"
 	"encoding/xml"
 	"fmt"
-	"github.com/appflight/apkparser"
+	"github.com/v4n0v/apkparser"
 	"io"
 	"io/ioutil"
 	"os"

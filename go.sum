@@ -1,6 +1,6 @@
 github.com/appflight/androidbinary v1.0.3 h1:NhfMqnSjXqqzsrhcLvKR8B/vVTcrabowrc7LqRwGnSI=
 github.com/appflight/androidbinary v1.0.3/go.mod h1:ZZ4Ae5SzPO9DOEF3Sdms6zzrGuHcxyreQ5sjp6bFycA=
-github.com/appflight/apkparser v0.0.0-20210130111306-76f9efb1a121/go.mod h1:Z1DeQQQej1icWWKARW4R89Pnp/FWp0QDJs6PRWBHoPc=
+github.com/v4n0v/apkparser v0.0.0-20210130111306-76f9efb1a121/go.mod h1:Z1DeQQQej1icWWKARW4R89Pnp/FWp0QDJs6PRWBHoPc=
 github.com/appflight/apkverifier v1.0.0 h1:xJL2WT8kQKKIgqPjIScKi3+4oH6dTLweaX7ej0/irkI=
 github.com/appflight/apkverifier v1.0.0/go.mod h1:Hz2bdVCgdZ4eS9GFlnsH5Oql7I2VZJ5ew2yev1y0CZU=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

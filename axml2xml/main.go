@@ -14,9 +14,9 @@ import (
 	"runtime/pprof"
 	"strings"
 
-	"github.com/appflight/apkparser"
 	"github.com/appflight/apkverifier"
 	"github.com/appflight/apkverifier/apilevel"
+	"github.com/v4n0v/apkparser"
 )
 
 type optsType struct {
