@@ -6,20 +6,24 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/appflight/androidbinary"
-	"image"
-	"image/png"
-	"io"
+    "io"
 	"os"
 	"runtime/debug"
-	"strings"
+    "encoding/base64"
 )
+
+type IconData struct {
+    Name string
+    Icon *string
+    IconBytes []byte
+}
 
 type ApkInfo struct {
 	Package     string
 	VersionName string
 	VersionCode int32
 	Label       string
-	Icon        image.Image
+    Icon        IconData
 }
 type Manifest struct {
 	Package     androidbinary.String `xml:"package,attr"`
@@ -94,8 +98,9 @@ func ParseApkWithZip(zip *ZipReader) (ApkInfo, error) {
 		return apkInfo, manifestErr
 	}
 
+    bytes := buf.Bytes()
 	var manifest Manifest
-	_ = xml.Unmarshal(buf.Bytes(), &manifest)
+    _ = xml.Unmarshal(bytes, &manifest)
 	iconPath, _ := manifest.App.Icon.String()
 	icon, err := p.ParseIcon(iconPath)
 	if err != nil {
@@ -106,7 +111,7 @@ func ParseApkWithZip(zip *ZipReader) (ApkInfo, error) {
 	apkInfo.VersionName, _ = manifest.VersionName.String()
 	apkInfo.VersionCode, _ = manifest.VersionCode.Int32()
 	apkInfo.Label, _ = manifest.App.Label.String()
-	apkInfo.Icon = icon
+    apkInfo.Icon = IconData{Icon: icon, Name: iconPath, IconBytes: bytes}
 
 	return apkInfo, nil
 }
@@ -176,28 +181,39 @@ func (p *ApkParser) ParseXml(name string) error {
 	return fmt.Errorf("Failed to parse %s, last error: %v", name, lastErr)
 }
 
-func (p *ApkParser) ParseIcon(name string) (image.Image, error) {
+func (p *ApkParser) ParseIcon(name string) (imageBase64 *string, err error) {
 	file := p.zip.File[name]
 	if file == nil {
-		return nil, fmt.Errorf("Failed to find %s in APK!", name)
+		return nil, fmt.Errorf("Failed to find %out64 in APK!", name)
 	}
 
-	if err := file.Open(); err != nil {
-		return nil, err
+	if err = file.Open(); err != nil {
+		return
 	}
 	defer file.Close()
 
-	if strings.HasSuffix(file.Name, ".png") {
-		icon, err := png.Decode(file)
-		if err == nil {
-			return icon, nil
-		}
-	}
+    var bytes []byte
+    _, err = file.Read(bytes)
+    if err != nil {
+        return
+    }
+    out64 :=base64.StdEncoding.EncodeToString(bytes)
+    return &out64, nil
 
-	icon, _, err := image.Decode(file)
-	if err != nil {
-		return nil, err
-	} else {
-		return icon, nil
-	}
+//	if strings.HasSuffix(file.Name, ".png") {
+//		icon, err := png.Decode(file)
+//		if err == nil {
+//            return base64, nil
+//		}
+//	}
+//    if strings.HasSuffix(file.Name, ".jpg")  || strings.HasSuffix(file.Name, ".jpeg")  {
+//        icon, err := jpeg.Decode(file)
+//        if err == nil {
+//            return base64, nil
+//        }
+//    }
+//
+//
+//	icon, _, err := image.Decode(file)
+//    return icon, err
 }
